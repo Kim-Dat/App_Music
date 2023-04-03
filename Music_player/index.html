@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./assets/font-icon/fontawesome-free-6.4.0-web/fontawesome-free-6.4.0-web/css/all.min.css">
+  <link rel="shortcut icon" href="https://t3.ftcdn.net/jpg/04/54/66/12/360_F_454661277_NtQYM8oJq2wOzY1X9Y81FlFa06DVipVD.jpg" type="image/x-icon">
+  <title>Music player</title>
+</head>
+<body>
+  <div class="player-music">
+    <div class="frame-music">
+      <video class="background_music" autoplay loop muted>
+        <source src="./assets/img/background_MP4.mp4" type="video/mp4">
+      </video>
+      <div class="frame-music_header">
+        <div class="frame-music_icon-list">
+          <i class="fa-solid fa-bars color-text"></i>
+          <div class="discribe discribe-playlist">Show playlist</div>
+        </div>
+        <div class="frame-music_title color-text">Now playing</div>
+        <div class="frame-music_icon-add-favourite">
+          <i class="fa-regular fa-heart heart-icon color-text"></i>
+          <i class="fa-solid fa-heart heart-icon-red color-text"></i>
+          <div class="discribe discribe-add-favourite">Add favourite</div>
+        </div>
+      </div>
+      <!-- cd -->
+      <div class="frame-music_cd">
+        <img class="cd-img" src="./assets/img/tải xuống (2).jpg" alt="" draggable="false">
+      </div>
+      <!-- name -->
+      <div class="frame-music_song">
+        <h3 class="song-name color-text">Nevada</h3>
+        <p class="song-author color-text">Montercat</p>
+      </div>
+      <!-- progress bar -->
+      <div class="frame-music_progress-bar">
+        <div class="progress-bar">
+          <div class="progress-bar_value"></div>
+        </div>
+      </div>
+      <!-- progress bar time -->
+      <div class="frame-music_progress-time">
+        <div class="progress-time_current color-text">00:00</div>
+        <div class="progress-time_duration color-text">00:00</div>
+      </div>
+      <!-- controls -->
+      <div class="frame-music_controls">
+        <div class="btn btn-random color-text">
+          <i class="fa-solid fa-shuffle"></i>
+        </div>
+        <div class="btn btn-prev color-text">
+          <i class="fa-solid fa-backward-step"></i>
+        </div>
+        <div class="btn btn-play color-text">
+          <i class="fa-solid fa-circle-play btn-play-icon"></i>
+          <i class="fa-solid fa-circle-pause btn-pause-icon"></i>
+        </div>
+        <div class="btn btn-next color-text">
+          <i class="fa-solid fa-forward-step"></i>
+        </div>
+        <div class="btn btn-repeat color-text">
+          <i class="fa-solid fa-repeat btn-repeat-on-off "></i>
+        </div>
+      </div>
+      <audio id="audio" src="" preload="metadata"></audio>
+      <!-- volume -->
+      <div class="frame-music_volumes">
+        <div class="valume-icon color-text">
+          <i class="fa-solid fa-volume-high valume-icon_open"></i>
+          <i class="fa-solid fa-volume-xmark valume-icon_mute"></i>
+        </div>
+
+        <div class="frame-music_volume-changer">
+          <a href="./assets/img/tải xuống (3).jpg"></a>
+          <div class="volume-changer_bar">
+            <div class="volume-changer_bar-value"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- player list -->
+    <!-- playlistOpen-->
+    <div class="frame-playlist">
+      <div class="playlist">
+        <video class="playlist_background" autoplay loop muted>
+          <source src="./assets/img/background_MP4.mp4" type="video/mp4">
+        </video>
+
+        <div class="playlist_header">
+          <div class="music_title-list color-text">My Playlist</div>
+          <div class="music_close-list-icon">
+            <i class="fa-solid fa-xmark color-text"></i>
+          </div>
+        </div>
+        <ul class="playlist_songs">
+          <!-- active  -->
+          <!-- <li class="playlist_item active">
+            <div class="playlist_item-img">
+              <img src="./assets/img/AlanWalker.jpg" alt="###">
+            </div>
+            <div class="playlist-item_info">
+              <h3 class="playlist-item_name color-text">ten bai hat</h3>
+              <p class="playlist-item_author color-text">tac gia</p>
+            </div>
+            <div class="playlist-item_options">
+              <i class="fa-solid fa-ellipsis"></i>
+            </div>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="./main.js"></script>
+</body>
+</html>

@@ -1,0 +1,474 @@
+* {
+     padding: 0;
+     margin: 0;
+     box-sizing: border-box;
+}
+
+body {
+     font-family: 'Oswald', sans-serif;
+     /* origin font html 100% , font 16px => font = 62.5% = 1rem = 10px */
+     font-size: 62.5%;
+}
+
+.player-music {
+     display: flex;
+     width: 100vw;
+     height: 100vh;
+     justify-content: center;
+     align-items: center;
+     background-repeat: no-repeat;
+     background-size: cover;
+     overflow: hidden;
+     background: linear-gradient(45deg, rgb(255 82 82) 0%, rgb(39 60 119) 50%, rgb(20 82 98) 100%);
+}
+
+.frame-music {
+     position: relative;
+     width: 400px;
+     height: 600px;
+     margin: 0 auto;
+     box-shadow: 0px 0px 26px 5px rgb(0 0 0 / 40%);
+     text-align: center;
+     padding: 20px 30px;
+     font-size: 2.3rem;
+     border-radius: 12px;
+     z-index: 0;
+}
+
+.background_music {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     border-radius: 12px;
+     /* căn chỉnh img hay video theo vùng chứa nó*/
+     object-fit: cover;
+     /* *** */
+     object-position: 50% 50%;
+     z-index: -2;
+}
+
+.frame-music_header {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 20px;
+}
+
+.color-text {
+     background: linear-gradient(45deg, #f75656, #eacd15, rgb(0, 255, 13), #2900f3);
+     font-weight: bolder;
+     user-select: none;
+     /* chuyển đổi màu từ background màu text sang kiểu màu text và outsize là trong suốt */
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     -webkit-touch-callout: none;
+     /* iOS Safari */
+     -webkit-user-select: none;
+     /* Safari */
+     -khtml-user-select: none;
+     /* Konqueror HTML */
+     -moz-user-select: none;
+     /* Old versions of Firefox */
+     -ms-user-select: none;
+     /* Internet Explorer/Edge */
+}
+
+.frame-music_icon-add-favourite .heart-icon {
+     font-weight: normal;
+}
+
+.heart-icon,
+.heart-icon-red,
+.frame-music_icon-list {
+     cursor: pointer;
+}
+
+.frame-music_icon-add-favourite .heart-icon-red {
+     display: none;
+}
+
+.frame-music_icon-list,
+.frame-music_icon-add-favourite {
+     position: relative;
+     padding: 2px 4px;
+}
+
+.frame-music_icon-add-favourite.favourite .heart-icon{
+     display: none;
+}
+.frame-music_icon-add-favourite.favourite .heart-icon-red{
+     display: inline-block;
+}
+.discribe {
+     position: absolute;
+     color: #000;
+     background-color: #00e8e6;
+     font-size: 1rem;
+     padding: 2px 11px;
+     border-radius: 20px;
+     font-weight: bold;
+     left: -40px;
+     bottom: 96%;
+     width: max-content;
+     pointer-events: none;
+     transition: all .3s ease;
+     transform-origin: 50% bottom;
+     opacity: 0;
+     visibility: hidden;
+     transform: scale(0);
+}
+
+.discribe::after {
+     content: "";
+     position: absolute;
+     border-color: #00e8e6 transparent transparent transparent;
+     border-width: 6px 8px;
+     border-style: solid;
+     right: 43px;
+     bottom: -11px;
+}
+
+.frame-music_icon-list:hover .discribe,
+.frame-music_icon-add-favourite:hover .discribe {
+     opacity: 1;
+     visibility: visible;
+     transform: scale(1);
+}
+
+/* cd */
+
+.frame-music_cd {
+     margin: 20px auto;
+     pointer-events: none;
+     user-select: none;
+     display: flex;
+}
+
+.cd-img {
+     margin: auto   ;
+     position: relative;
+     border-radius: 50%;
+     width: 185px;
+     height: 185px;
+     object-fit: cover;
+     margin: auto;
+     box-shadow: 0 0 10px rgb(11, 137, 205);
+}
+
+.frame-music_song {
+     margin-top: -15px;
+}
+
+.song-name {
+     font-size: 3rem;
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+}
+
+.song-author {
+     font-size: 1.6rem;
+     margin-top: -10px;
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+}
+
+/* progress-bar-wraaper*/
+.frame-music_progress-bar {
+     padding: 1px 0;
+     margin: 22px 10px 4px;
+     cursor: pointer;
+}
+
+.progress-bar {
+     background-color: #dadada;
+     height: 7px;
+     margin: 11px 0;
+     border-radius: 5px;
+     user-select: none;
+}
+
+.progress-bar_value {
+     position: relative;
+     display: flex;
+     height: 100%;
+     width: 0;
+     align-items: center;
+     background: linear-gradient(45deg, #2ddcff, #e1e905, #1000f3);
+     border-radius: 5px;
+}
+
+.progress-bar_value::after {
+     content: "";
+     position: absolute;
+     background-color: #ff2ddf;
+     width: 15px;
+     height: 15px;
+     border-radius: 50%;
+     right: -8px;
+     border: 2px solid #fff;
+     transition: all linear .2s;
+     opacity: 0;
+     visibility: hidden;
+}
+
+.frame-music_progress-bar:hover .progress-bar_value::after {
+     opacity: 1;
+     visibility: inherit;
+}
+
+.player-music.player-music--hover-progress .progress-bar_value::after{
+     opacity: 1;
+     visibility: inherit;
+}
+/* time progress */
+.frame-music_progress-time {
+     display: flex;
+     justify-content: space-between;
+     margin: -10px 10px 0;
+     font-size: 1rem;
+}
+
+/* control */
+
+.frame-music_controls {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     font-size: 1.6rem;
+     margin-top: 12px;
+}
+
+.btn {
+     padding: 5px 10px;
+     cursor: pointer;
+
+}
+.btn-random.being-random i {
+     border-bottom: 3px solid rgb(174, 255, 0);
+}
+
+.btn-play {
+     font-size: 2.5rem;
+}
+
+.btn-play .btn-pause-icon {
+     display: none;
+}
+
+.btn-play.playing .btn-pause-icon{
+     display: inline-block;
+}
+.btn-play.playing .btn-play-icon{
+     display: none;
+}
+
+/* valume */
+
+.frame-music_volumes {
+     display: flex;
+     justify-content: center;
+     margin-top: 10px;
+     align-items: center;
+}
+
+.valume-icon {
+     font-size: 1.4rem;
+     cursor: pointer;
+}
+
+.valume-icon .valume-icon_mute {
+     display: none;
+}
+
+.frame-music_volume-changer {
+     width: 50%;
+     cursor: pointer;
+     user-select: none;
+     align-self: center;
+     padding: 10px 0;
+     margin-left: 10px;
+}
+
+.volume-changer_bar {
+     width: 100%;
+     background-color: #fff;
+     height: 6px;
+     border-radius: 5px;
+     margin-top: 3px;
+}
+
+.volume-changer_bar-value {
+     position: relative;
+     height: 100%;
+     background: linear-gradient(45deg, #2ddcff, #e1e905, #1000f3);
+     border-radius: 5px;
+     max-width: 100%;
+     display: flex;
+     align-items: center;
+}
+
+.volume-changer_bar-value::after {
+     content: "";
+     position: absolute;
+     background-color: #ff2ddf;
+     width: 14px;
+     height: 14px;
+     border-radius: 50%;
+     right: -8px;
+     border: 2px solid #fff;
+     transition: all linear .2s;
+     opacity: 0;
+     visibility: hidden;
+}
+
+.frame-music_volume-changer:hover .volume-changer_bar-value::after {
+     opacity: 1;
+     visibility: visible;
+}
+
+/* playlist */
+
+.frame-playlist {
+     position: fixed;
+     top: 0;
+     left: 0;
+     bottom: 0;
+     right: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     /* Ẩn element mà không làm thay đổi bố cục, không thể sử dụng thuộc tính display cho transform mà phải dùng animation; */
+     transition: all .6s ;
+     transform: translateY(100%);
+     visibility: hidden;
+     opacity: 0;
+     z-index: 1;
+}
+
+.playlist {
+     position: relative;
+     width: 400px;
+     height: 600px;
+     border-radius: 10px;
+     padding: 18px 0;
+     overflow: hidden;
+}
+
+.frame-playlist.playlistOpen {
+     visibility: visible;
+     transform: translateY(0);
+     opacity: 1;
+}
+
+.playlist_background {
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     object-position: 50% 50%;
+     border-radius: 10px;
+     z-index: -1;
+}
+
+.playlist_header {
+     font-size: 2rem;
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 0 18px 0 20px;
+}
+
+.music_close-list-icon{
+     cursor: pointer;
+}
+/* list */
+.playlist_songs {
+     list-style: none;
+     overflow-y: auto;
+     margin-top: 15px;
+     max-height: 480px;
+}
+
+.playlist_songs::-webkit-scrollbar {
+     display: none;
+}
+
+.playlist_item {
+     display: flex;
+     position: relative;
+     align-items: center;
+     overflow: hidden;
+     border-radius: 12px;
+     height: 70px;
+     padding: 8px 20px;
+     margin-bottom: 12px;
+}
+
+.playlist_item.active {
+     background: linear-gradient(45deg, #ce982b, #65c442, transparent, #cec62b 100%);
+}
+
+.playlist_item:hover {
+     border: 1.5px solid rgb(20, 202, 223);
+}
+
+.playlist_item-img {
+     margin-right: 16px;
+}
+
+.playlist_item-img img {
+     width: 60px;
+     height: 60px;
+     object-fit: cover;
+     border-radius: 12px;
+}
+
+.playlist-item_info {
+     flex: 1;
+}
+
+.playlist-item_name {
+     display: block;
+     font-size: 1.5rem;
+     line-height: 1.5rem;
+     /* điều chỉnh kích thước theo block hiện tại và cộng với dấu 3 chấm */
+     /* overflow: hidden; */
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+}
+
+.playlist-item_author {
+     font-size: 1.2rem;
+     font-weight: 500;
+     display: block;
+     /* có thể ngắt dòng theo ý mình muốn bằng phương thức line-clamp và cộng với dấu 3 chấm*/
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-box-orient: vertical;
+     -webkit-line-clamp: 1;
+}
+
+.playlist-item_options {
+     font-size: 1.3rem;
+     color: rgb(8, 255, 8);
+}
+
+/* có 2 cách ngắt dòng thành dấu 3 chấm
+c1 ;
+overflow : hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp:1
+
+c2;
+overflow : hidden;
+text-overflow: ellipsis
+white-space:nowrap
+*/
